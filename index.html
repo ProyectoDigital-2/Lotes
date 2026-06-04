@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport"/>
-<title>Lotes Especiales APYMSA MAY 2026</title>
+<title>Lotes Especiales APYMSA 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -438,7 +438,7 @@ thead th:first-child{width:66px;padding:4px;}
 </div>
 <div class="title">
 <div class="title-big">LOTES<br/>ESPECIALES</div>
-<div class="title-brand">APYMSA · Lotes Especiales MAY 2026</div>
+<div class="title-brand">APYMSA · Lotes Especiales 2026</div>
 <div class="divider-line"></div>
 </div>
 <div class="steps">
@@ -494,7 +494,7 @@ thead th:first-child{width:66px;padding:4px;}
 <div class="bot-box" style="grid-column:1/-1">
 <div class="bot-lbl">Lotes disponibles</div>
 <div class="bot-val">8</div>
-<div class="bot-sub">Abril – Mayo 2026</div>
+<div class="bot-sub">2026</div>
 </div>
 </div>
 <div class="nota">
@@ -507,7 +507,7 @@ thead th:first-child{width:66px;padding:4px;}
 <div class="hero" id="catalogo-lotes">
 <div class="hero-badge">⚡ APYMSA · Fuerza de Ventas</div>
 <h1>LOTES<br/>ESPECIALES</h1>
-<div class="hero-sub">MAY <span>2026</span></div>
+<div class="hero-sub"><span>2026</span></div>
 </div>
 <!-- LOTES -->
 <div class="sec"><div class="sec-line"></div><span class="sec-txt">Toca para ver el desglose</span><div class="sec-line"></div></div>
@@ -1070,7 +1070,7 @@ thead th:first-child{width:66px;padding:4px;}
 <div class="footer">
 <strong>¿Listo para cerrar tu lote?</strong><br/>
   Los bonos se aplican al facturar con el código de lote.<br/><br/>
-<span style="font-size:10px;opacity:.5">APYMSA · Lotes Especiales MAY 2026</span>
+<span style="font-size:10px;opacity:.5">APYMSA · Lotes Especiales 2026</span>
 </div>
 <script>
 function toggle(id){
@@ -1269,7 +1269,7 @@ async function buildLotePDF(data) {
   pdf.text('APYMSA', M + 2, 14);
   setFont('normal', 7);
   setTxt(C.muted);
-  pdf.text('LOTES ESPECIALES  ·  MAY 2026', M + 2, 20);
+  pdf.text('LOTES ESPECIALES  ·  2026', M + 2, 20);
 
   // Lote name
   setFont('bold', 13);
@@ -1492,7 +1492,7 @@ async function buildLotePDF(data) {
     pdf.line(0, H - 9, W, H - 9);
     setFont('normal', 6);
     setTxt(C.muted);
-    pdf.text('APYMSA  ·  Lotes Especiales MAY 2026', M, H - 3.5);
+    pdf.text('APYMSA  ·  Lotes Especiales 2026', M, H - 3.5);
     pdf.text('Pag. ' + pageNum + ' / ' + totalPages, W - M, H - 3.5, { align: 'right' });
   }
   for (var p = 1; p <= totalPages; p++) drawPageFooter(p);
