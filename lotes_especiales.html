@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lotes Especiales APYMSA 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#EEF1F6; --card:#fff; --dark:#1B2733; --muted:#6B7A8C; --line:#E2E8F0;
+  --navy1:#1B2B4B; --navy2:#2A3F69;
+  --blue:#0A84FF; --purple:#5E5CE6; --orange:#FF9F0A; --teal:#30B0C7; --coral:#FF6B57; --green:#34C759; --yellow:#FFC400;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--dark);min-height:100vh}
+.wrap{max-width:1100px;margin:0 auto;padding:16px 14px 40px}
+
+/* ── Hero ── */
+.hero{background:linear-gradient(160deg,var(--navy1) 0%,var(--navy2) 100%);border-radius:26px;padding:20px 20px 22px;color:#fff;text-align:center;
+  box-shadow:0 14px 34px -14px rgba(20,35,70,.65), inset 0 1px 0 rgba(255,255,255,.12)}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.logo{height:28px;border-radius:8px;box-shadow:0 3px 8px rgba(0,0,0,.35)}
+.dots{display:flex;gap:7px}
+.dots i{width:12px;height:12px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:#FF5F57}.dots i:nth-child(2){background:#FEBC2E}.dots i:nth-child(3){background:#28C840}
+.badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:6px 16px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.hero h1{font-size:clamp(22px,4.6vw,34px);line-height:1.1;font-weight:900;letter-spacing:2px;margin:10px 0 4px}
+.hero h1 span{background:linear-gradient(135deg,#FFFFFF 0%,#9BD0FF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:12px;letter-spacing:3px;text-transform:uppercase;opacity:.75;font-weight:700}
+.pills{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+@media(max-width:700px){.pills{grid-template-columns:repeat(2,1fr)}}
+.pill{background:#fff;border-radius:16px;padding:11px 8px;color:var(--dark);position:relative;overflow:hidden;box-shadow:0 6px 14px -6px rgba(0,0,0,.4)}
+.pill::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:var(--ac)}
+.pill b{display:block;font-size:clamp(17px,3.4vw,24px);font-weight:800;color:var(--ac);letter-spacing:-.5px}
+.pill span{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+
+/* ── Cómo vender ── */
+.sec{display:flex;align-items:center;gap:10px;margin:24px 2px 12px}
+.sec h2{font-size:14px;font-weight:900;letter-spacing:.6px;text-transform:uppercase}
+.sec i{flex:1;height:1px;background:var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border-radius:20px;padding:14px 14px 15px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 8px 18px -10px rgba(20,35,70,.35);position:relative;overflow:hidden}
+.step::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:var(--ac)}
+.step .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--ac);color:#fff;font-weight:900;font-size:14px}
+.step .ic{float:right;font-size:26px}
+.step h3{font-size:14px;font-weight:800;margin:10px 0 4px}
+.step p{font-size:12px;color:var(--muted);line-height:1.5}
+.tag{display:inline-block;margin-top:8px;font-size:10px;font-weight:800;border-radius:999px;padding:4px 10px;background:color-mix(in srgb,var(--ac) 14%,#fff);color:var(--ac)}
+
+/* ── Barra de vista ── */
+.bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.seg{display:inline-flex;background:#DDE3EC;border-radius:999px;padding:3px}
+.seg button{border:none;background:transparent;padding:8px 18px;border-radius:999px;font-size:12px;font-weight:800;color:#4B5A6C;cursor:pointer}
+.seg button.on{background:#fff;color:var(--dark);box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.btn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 14px;font-size:12px;font-weight:800;color:var(--dark);cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.btn:hover{background:#F2F6FB}
+.btn.green{background:#E3F6E8;border-color:#BFE8CC;color:#1F8F4A}
+.sp{flex:1}
+
+/* ── Tarjetas de lote ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.lote{background:var(--card);border-radius:22px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 24px -12px rgba(20,35,70,.4);transition:transform .15s,box-shadow .15s}
+.lote:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(0,0,0,.06),0 16px 30px -12px rgba(20,35,70,.5)}
+.lote::before{content:'';position:absolute;left:0;right:0;top:0;height:5px;background:var(--ac)}
+.lh{display:flex;align-items:center;gap:12px;padding:18px 16px 12px}
+.lic{width:50px;height:50px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:24px;background:color-mix(in srgb,var(--ac) 16%,#fff);flex-shrink:0}
+.lnm{font-size:15px;font-weight:900;line-height:1.15}
+.lno{font-size:11px;font-weight:800;color:var(--ac);margin-top:3px;text-transform:uppercase;letter-spacing:.5px}
+.cod{display:flex;align-items:center;gap:8px;margin:0 16px 12px;background:#F4F7FB;border:1px dashed #C9D6E6;border-radius:12px;padding:8px 10px}
+.cod small{font-size:9.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.cod b{font-family:Consolas,monospace;font-size:17px;letter-spacing:2px;color:#0A5BC4;flex:1;text-align:center}
+.cod button{border:none;background:#E8F2FF;color:#0A5BC4;border-radius:8px;padding:5px 10px;font-size:11px;font-weight:800;cursor:pointer}
+.kp{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 16px}
+.k{background:#F7F9FC;border-radius:14px;padding:9px 10px}
+.k span{display:block;font-size:9.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+.k b{display:block;font-size:19px;font-weight:800;letter-spacing:-.4px;margin-top:2px}
+.k.wide{grid-column:1/-1;background:color-mix(in srgb,var(--ac) 10%,#fff)}
+.k.wide b{font-size:22px;color:var(--ac)}
+.k.big{grid-column:1/-1;text-align:center;padding:14px 10px;color:#fff;background:linear-gradient(135deg,var(--ac),color-mix(in srgb,var(--ac) 60%,#1B2B4B));box-shadow:0 8px 18px -8px var(--ac)}
+.k.big span{color:rgba(255,255,255,.9);font-size:11px}
+.k.big b{font-size:clamp(34px,8vw,44px);font-weight:900;letter-spacing:-1px;line-height:1.1}
+.k.big em{display:block;font-style:normal;font-size:10.5px;font-weight:700;opacity:.85;margin-top:2px}
+.k.wide.sm{display:flex;justify-content:space-between;align-items:center;background:#F7F9FC;padding:8px 12px}
+.k.wide.sm span{font-size:10px}
+.k.wide.sm b{font-size:15px;color:var(--dark);margin:0}
+.share{padding:12px 16px 4px}
+.share .t{display:flex;justify-content:space-between;font-size:10.5px;font-weight:700;color:var(--muted);margin-bottom:4px}
+.share .b{height:8px;border-radius:5px;background:#EDF1F6;overflow:hidden}
+.share .b i{display:block;height:100%;border-radius:5px;background:var(--ac)}
+.bono{display:flex;align-items:center;gap:10px;margin:12px 16px 16px;border-radius:14px;padding:11px 13px;background:linear-gradient(135deg,#FFF4D6,#FFE9B8);border:1px solid #F5D98B}
+.bono em{font-style:normal;font-size:24px}
+.bono b{display:block;font-size:17px;font-weight:900;color:#9A5B00}
+.bono span{font-size:10.5px;color:#9A7A3B;font-weight:700}
+
+/* ── Tabla ── */
+.tw{display:none;background:#fff;border-radius:22px;overflow:auto;box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 24px -12px rgba(20,35,70,.4)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:760px}
+thead th{background:linear-gradient(180deg,#F4F7FB,#E9EFF7);color:#3C4A59;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;padding:12px 10px;text-align:right;border-bottom:2px solid #C9D6E6;white-space:nowrap}
+thead th:nth-child(-n+3){text-align:left}
+tbody td{padding:12px 10px;border-bottom:1px solid #EEF2F6;text-align:right;font-variant-numeric:tabular-nums}
+tbody td:nth-child(-n+3){text-align:left}
+tbody tr:hover{background:#EAF3FF}
+tfoot td{padding:12px 10px;font-weight:900;text-align:right;background:#F4F7FB}
+tfoot td:first-child{text-align:left}
+.chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:800}
+.chip.no{background:var(--ac);color:#fff;min-width:26px;text-align:center}
+.chip.cd{background:#E8F2FF;color:#0A5BC4;font-family:Consolas,monospace;letter-spacing:1px}
+.chip.bn{background:#FFF1D0;color:#9A5B00}
+
+.nota{margin-top:20px;text-align:center;font-size:11.5px;color:var(--muted);line-height:1.6}
+/* ── Modal de códigos ── */
+.lote{cursor:pointer}
+.ver{margin:0 16px 16px}
+.ver button{width:100%;border:none;border-radius:14px;padding:12px;font-size:13px;font-weight:900;color:#fff;background:var(--ac);cursor:pointer;box-shadow:0 6px 14px -6px var(--ac)}
+tbody tr.clk{cursor:pointer}
+.mo{position:fixed;inset:0;background:rgba(15,25,45,.62);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:14px;z-index:50}
+.mo.on{display:flex}
+.md{background:#fff;border-radius:24px;width:min(980px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 70px -20px rgba(0,0,0,.6)}
+.mh{padding:16px 18px;color:#fff;background:linear-gradient(160deg,var(--navy1),var(--navy2));position:relative}
+.mh::after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--ac)}
+.mh .r1{display:flex;align-items:center;gap:10px}
+.mh h3{font-size:clamp(15px,3.4vw,20px);font-weight:900;letter-spacing:.5px;flex:1}
+.mh .x{border:none;background:rgba(255,255,255,.16);color:#fff;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer}
+.mh .r2{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.mh .c{background:rgba(255,255,255,.14);border-radius:999px;padding:5px 12px;font-size:11px;font-weight:800}
+.mh .c b{font-family:Consolas,monospace;letter-spacing:1.5px}
+.mh .sp{flex:1}
+.mh .dl{border:none;border-radius:10px;padding:8px 14px;font-size:12px;font-weight:900;cursor:pointer}
+.dl.xl{background:#E3F6E8;color:#1F8F4A}.dl.pd{background:#FFE5E2;color:#C62828}
+.mb{overflow:auto;padding:0 6px 8px}
+.mb table{min-width:560px}
+.mb thead th{position:sticky;top:0;z-index:2}
+.mb thead th:nth-child(-n+3){text-align:left}
+.mb tbody td{padding:6px 10px;vertical-align:middle}
+.mb tbody td:nth-child(-n+3){text-align:left}
+.mb tbody td:nth-child(4){text-align:left;color:var(--muted);font-size:11.5px}
+.ph{width:54px;height:54px;border-radius:10px;background:#F2F5F9;display:flex;align-items:center;justify-content:center;font-size:20px;overflow:hidden;position:relative}
+.ph img{position:relative;z-index:1;background:#fff}
+.ph img{width:100%;height:100%;object-fit:contain}
+.mn{padding:9px 16px;font-size:11px;color:var(--muted);background:#F7F9FC;border-top:1px solid var(--line)}
+.toast{position:fixed;z-index:60;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#1B2733;color:#fff;border-radius:999px;padding:10px 18px;font-size:12px;font-weight:700;opacity:0;pointer-events:none;transition:all .25s}
+.toast.on{opacity:1;transform:translateX(-50%)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-top">
+      <img class="logo" src="img01.png" alt="APYMSA" onerror="this.style.display='none'">
+      <div class="dots"><i></i><i></i><i></i></div>
+    </div>
+    <span class="badge">⚡ APYMSA · Fuerza de Ventas</span>
+    <h1><span>LOTES ESPECIALES</span></h1>
+    <div class="hero-sub">2026</div>
+    <div class="pills" id="pills"></div>
+  </div>
+
+  <!-- CÓMO VENDER -->
+  <div class="sec"><h2>Cómo vender un lote y ganar tu bono</h2><i></i></div>
+  <div class="steps">
+    <div class="step" style="--ac:#0A84FF"><span class="ic">📱</span><span class="n">1</span>
+      <h3>Elige el lote</h3><p>Revisa los lotes disponibles, su código de facturación y el monto que debe cubrir cada lote.</p>
+      <span class="tag">👇 Mira los lotes abajo</span></div>
+    <div class="step" style="--ac:#E0382F"><span class="ic">🧾</span><span class="n">2</span>
+      <h3>Factura con el código del lote</h3><p>Al facturar usa el <b>código de facturación</b> del lote. Sin ese código el bono NO se aplica.</p>
+      <span class="tag">⚠ Código obligatorio</span></div>
+    <div class="step" style="--ac:#AF52DE"><span class="ic">📢</span><span class="n">3</span>
+      <h3>Notifica a tu líder directo</h3><p>Informa la venta a tu líder para que la comunique al Gerente Divisional. Paso obligatorio para validar el bono.</p>
+      <span class="tag">Líder → Gerente Divisional</span></div>
+    <div class="step" style="--ac:#FF9F0A"><span class="ic">🏆</span><span class="n">4</span>
+      <h3>¡Cobra tu bono!</h3><p>El bono se incluirá dentro de tu compensación, notificando a tu líder directo. Se acredita al cerrar el lote completo y varía según el lote.</p>
+      <span class="tag">★ De $1,500 a $2,000 por lote</span></div>
+  </div>
+
+  <!-- LOTES -->
+  <div class="sec" id="lotes"><h2>Lotes disponibles</h2><i></i></div>
+  <div class="bar">
+    <div class="seg"><button id="v-cards" class="on" onclick="vista('cards')">🗂️ Tarjetas</button><button id="v-tabla" onclick="vista('tabla')">📋 Tabla</button></div>
+    <div class="sp"></div>
+    <button class="btn green" onclick="excel()">⬇ Excel</button>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="tw" id="tw"><table>
+    <thead><tr><th>No.</th><th>Lote</th><th>Código facturación</th><th># Códigos</th><th>$ Monto total</th><th># Lotes</th><th>Monto x lote</th><th>$ Bono x lote</th></tr></thead>
+    <tbody id="tb"></tbody><tfoot id="tf"></tfoot></table></div>
+
+  <div class="nota">Los bonos son adicionales a los esquemas de productividad vigentes.<br><b>APYMSA · Siempre contigo 🚀</b></div>
+</div>
+<div class="toast" id="toast"></div>
+<div class="mo" id="mo" onclick="if(event.target===this)cerrar()">
+  <div class="md" id="md">
+    <div class="mh"><div class="r1"><h3 id="m-t"></h3><button class="x" onclick="cerrar()">✕</button></div>
+      <div class="r2"><span class="c">Código facturación <b id="m-c"></b></span><span class="c" id="m-n"></span><span class="c" id="m-p"></span>
+        <span class="sp"></span><button class="dl xl" onclick="loteExcel()">⬇ Excel</button><button class="dl pd" onclick="lotePDF()">⬇ PDF</button></div></div>
+    <div class="mb"><table><thead><tr><th></th><th>Código</th><th>Descripción</th><th>No. Parte</th><th>Cant</th></tr></thead><tbody id="m-b"></tbody></table></div>
+    <div class="mn" id="m-nota"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script>
+/* ── Códigos por lote: [código, descripción, no. parte, cantidad] ── */
+const C = '8605024';
+const COD = {
+4: [
+['2026002','Foco Fusible Azul 3 LEDs 10x31 (blister 2pz)','',680],
+['2008302','Foco 1034 12 LEDs Morado (blister 2pz) HQL','',380],
+['2014802','Foco 1176 12 LEDs Morado (blister 2pz) HQL','',220],
+['2008301','Foco 1034 12 LEDs Verde (blister 2pz) HQL','',220],
+['2019100','Foco 1034 12 LEDs 24V Blanco (blister 2pz) HQL','',195],
+['2014801','Foco 1176 12 LEDs Verde (blister 2pz) HQL','',160],
+['2019200','Foco 1176 12 LEDs 24V Blanco (blister 2pz) HQL','',140],
+['2019101','Foco 1034 12 LEDs 24V Ambar (blister 2pz) HQL','',150],
+['2019102','Foco 1034 12 LEDs 24V Rojo (blister 2pz) HQL','',90],
+['1951501','Foco Halógeno STAR 9004 12V 65/45W Xenon Amarillo','',80],
+['2030002','Foco Fusible Azul 4 LEDs 10x36 (blister 2pz)','',70],
+['2028008','Foco Fusible Azul 6 LEDs 10x39 (blister 2pz)','',55],
+['2019201','Foco 1176 12 LEDs 24V Ambar (blister 2pz) HQL','',3],
+['2014700','Foco 1176 12 LEDs Azul (blister 2pz) HQL','',3],
+['1946600','Foco 3157 12 LEDs Azul (blister 2pz) HQL','',2],
+['2012400','Foco 1141 12 LEDs Azul (blister 2pz) HQL','',24],
+['2028002','Foco Fusible Azul 8 LEDs 10x41 (blister 2pz)','',18]],
+5: [
+['1981300','Foco Halógeno 9004 12V 60/55W Platinum (caja lujo 2pz)','9004',900]],
+6: [
+['2018700','Foco STAR 57 Morado 12V 3W','',10960],
+['2006400','Foco STAR 1004 12V Rojo','',8640],
+['2020600','Foco STAR 67 Morado 12V 5W','',6300],
+['2026001','Foco STAR Azul Tipo Fusible Chico (11x31)','',6730],
+['2006300','Foco STAR 1004 12V Ambar','',6230],
+['2006500','Foco STAR 1004 12V 15W Azul','',5010],
+['2004500','Foco STAR 1003 12V 15W Morado','',7100],
+['2005800','Foco 1004 Waigeer 12V 5W','',3060],
+['2030001','Foco STAR Azul Tipo Fusible Chico (11x35)','',1530],
+['2007902','Foco STAR 1034 12V 2 Patas Escuadra Azul','',1350],
+['2004600','Foco STAR 1003 12V Verde','',290],
+['2040200','Foco Ojo de Venado STAR Sin Base Transparente','',400],
+['2013004','Foco STAR 1141 12V 2 Patas Escuadra Verde','',580],
+['2018400','Foco STAR 57 Ambar 12V 3W','',310],
+['2018600','Foco STAR 57 Rojo 3W 12V','',390],
+['2004400','Foco STAR 1003 12V 15W Rojo','',430],
+['1998000','Foco Aleman Flosser 57 Bombilla Chica','',190],
+['2013002','Foco STAR 1141 12V 2 Patas Escuadra Azul','',150],
+['2011800','Foco 1141 Waigeer 12V 17W','',200],
+['2015800','Foco 53 Waigeer 12V 3W','',200],
+['1945300','Foco STAR 3156 1 Polo Morado','',270],
+['2040100','Foco Ojo de Venado STAR Sin Base Azul','',60],
+['1945500','Foco STAR 3156 1 Polo Rojo','',70],
+['1982400','Foco Pellizco STAR Grande 921 Morado','',35],
+['2014600','Foco STAR 1176 Verde','',50],
+['2012700','Foco STAR 1141 12V 17W Morado','',30],
+['2008700','Foco STAR 1034 U 1157 Morado 12V','',90]],
+7: [
+[C,'Calavera CRV 17-19 EXT LEDS DER','11-6975-00-1N',1],
+[C,'Calavera Mustang 13-14 TYC DER','11-6693-A0-1A',1],
+[C,'Faro MZ CX9 16-19 Elect C/Motor TYC DER','019-1909-10',1],
+[C,'Calavera Edge 15-16 SE/SEL EXT LEDS DER','11-6823-A0-1A',1],
+[C,'Calavera CRV 17-19 EXT LEDS DER','11-6975-00-1N',1],
+[C,'Calavera Mercedes Clase C 15-16 LEDS DER','',1],
+[C,'Espejo NS Almera 01-05 Elect P/Pintar DER','018-2301-00',1],
+[C,'Parrilla Mazda 3 17-18 S/Molduras','',1],
+[C,'Faro Sentra 10-12 Fondo Negro DER','20-9213-A6-6B',1],
+[C,'Faro VW Bora 05-08 Gris TYC IZQ','019-3103-13',1],
+[C,'Radiador Bora 06-11','613-VWA126',1],
+[C,'Espejo Peugeot 207 08-13 C/Cont Man DER','ELP20708R',1],
+[C,'Defensa Del Attitude 15-24 / Mirage G4','DDDA115',1],
+[C,'Defensa Del Sentra 17-19','DDNSE16',1],
+[C,'Defensa Trasera Avanza 12-18','TY309-30A',1],
+[C,'Faro Actitud 12-14','20-C666-A5-2B',1],
+[C,'Calavera Accord 05-17 IZQ','17-5212-00-1A',1],
+[C,'Calavera Bora 05-10 EXT Rojo/Cristal LEDS IZQ','11-B0080015B3',1],
+[C,'Calavera Figo 16-18 4P S/Arnes IZQ','FCNF0702',1],
+[C,'Espejo Accord Crosstour 10-12 Elect P/Pint DER','ELHAC10ER',1],
+[C,'Espejo LAT Chrysler 300M 99-01 Elect DER','ELD30099ER',1],
+[C,'Faro Niebla Equinox 05-06 IZQ','19-5821-00-1A',1],
+[C,'Fascia Delantera CV LUV 97-05','203-0629-00',1],
+[C,'Elevador VW Beatle 98-12 Del Elect S/Motor IZQ','',1],
+[C,'Faro AUX 24V C11 Volvo 9700 HDLT','',3],
+[C,'Control Eléctrico Excursion Ford 00-07 Explorer','',1],
+[C,'Cuarto Trasero BMW X3 11-16 Reflejante TYC DER','',1],
+[C,'Espejo CV Stra 00-03 C/Cont Liso','018-0601-05',1],
+[C,'Espejo Electrico VW Pointer DER','AERV0201',2],
+[C,'Espejo Topaz 88-94 Elect GLS','ELFTO89ER',1],
+[C,'Manija Exterior Cheyenne 14-18 / Silverado Tras','012-0639-36',1],
+[C,'Manija Interior RN Duster 13-18 IZQ','104751',1],
+[C,'Manija Interior Spark 16-20 5P Negra IZQ','012-0666-11',1],
+[C,'Manija Exterior Sienna 04-10 S/Hoyo DEL DER','MEPTSI04DR',1],
+[C,'Tolva Salpicadera Bora 05-10 Plastico DER','TISVBO05RP',1],
+[C,'Tolva Salpicadera Onix 20-22 Plastico IZQ','TISCOH20LP',1],
+[C,'Tolva Inferior Motor Fusion/Milan 06-09 Central','TIMFFU06',1],
+[C,'Luna Espejo Civic 12-15 S/Desemp DER','530749101',1],
+[C,'Cuarto Lateral Maxima 00-03 Ambar C/Foco DER','18-5599-00-1A',1],
+[C,'Cuarto Punta Tsuru 85-87','17-1062-00-1A',1],
+[C,'Calavera Trail Blazer 02-09 S/Arnes DER','11-5829-01-6B',1],
+[C,'Calavera Tsuru 85-87 4/2P S/Arnes DER','11-1429-01-6B',1],
+[C,'Aleron Del KA 02-08 P/Pintar IZQ','ADFKA02NL',1],
+[C,'Calavera IZQ S/Arnes (Rojo/Rojo/Blanco)','FCNC0702',1],
+[C,'Control Ventana CV Trackr 99-07','70729',1],
+[C,'Cuarto Lateral Tsuru 84-87','18-11200005B3',1],
+[C,'Cuarto Lateral Tras Camaro DER','18-6167-A0-1N',1],
+[C,'Cuarto Tras Sentra 13-16 DER','17-5290-00-9B',1],
+[C,'Espejo TY Hiace 06-13 Manual Negro IZQ','018-3005-01',1],
+[C,'Calavera Bronco II 84-90 DER','330-1901R',1],
+[C,'Calavera GOL 09-10 Clara S/Arnes IZQ','11-B596-01-6B',1],
+[C,'Calavera Kangoo Express 09-12 DER','11-A7370015B3',1],
+[C,'Control Eléctrico Elevador Clio Euro / Duster','',1],
+[C,'Control Ventana RN Clio Euro 07-12 DEL IZQ','71052',1],
+[C,'Espejo Actitud 06-11','',1],
+[C,'Espejo Concavo 6" Con Tornillos Trailer','1648300',1],
+[C,'Espejo FD Econoline 02-14 Manual Doble Luna IZQ','018-1207-09',1],
+[C,'Espejo IZQ Manual Negro Poroso','',1],
+[C,'Espejo IZQ Manual Negro Poroso C/Control 5Ptas','AERV0202',1],
+[C,'Faro AUX Transparente 24V Baja C11 Volvo 9700','',2],
+[C,'Faro Niebla Jetta Clasico 08-14 S/Foco IZQ','19-C0120015B3',1],
+[C,'Guia Defensa Trasera Journey 09-14 IZQ','GTDJO09L',1],
+[C,'Guia Defensa Trasera Mazda 6 09-13','GTM609RL',1],
+[C,'Luna Espejo Attitude 06-11','ELDA106ER1',1],
+[C,'Manija De Elevar Jetta 93-98 Sprinter MB','18852',1],
+[C,'Manija Elev FT Pali-O 01-10 Perilla NGA','104942',1],
+[C,'Manija Elevador DG Neon 95-05 Gris','012-0912-10',1]],
+8: [
+[C,'Faro MZ CX9 16-20 Elect C/Motor TYC IZQ','019-1909-11',1],
+[C,'Faro AD A4 13-16 Elect C/Motor C/Lupa Xenon IZQ','019-0202-29',1],
+[C,'Faro 4Runner 06-09 Limited','20-6762-01-1N',1],
+[C,'Calavera Edge 15-16 SE/SEL EXT LEDS IZQ','11-6824-A0-1A',1],
+[C,'Calavera DG RAM PU 07-08 S/Foco Depo IZQ','017-0916-17',1],
+[C,'Espejo KIA Optima 15-16 IZQ','ELKOP15EL',1],
+[C,'Faro TY Corolla 09-10 Elect S/Motor IZQ','019-3004-45',1],
+[C,'Calavera Mitsubishi 13-15 EXT LEDS DER','11-6457-00-1N',1],
+[C,'Faro Niebla Fiesta 08-16 JGO','FNFFI08',1],
+[C,'Calavera Mazda 3 14-18 5P EXT C/Foco TYC DER','11-6659-00-1N',1],
+[C,'Calavera HD Element 03-08 S/Foco Depo IZQ','017-1309-01',1],
+[C,'Faro Ibiza/Cordoba 03-07 IZQ','20-A210-05-2B',1],
+[C,'Hule Defensa Trasero Lobo 09-14 S/Hoyo Sensor','213-1226-08',1],
+[C,'Radiador Acura TSX 09-13','613-ACA014',1],
+[C,'Espejo Acura MDX 07-09 DER','ELACMD07ER',1],
+[C,'Defensa Del Sonata 15-17 Sport','DDHDSO15S',1],
+[C,'Defensa Del Attitude 15-24 / Mirage G4','DDDA115',1],
+[C,'Calavera Quest 01-02 Rojo/Blanco C/Arnes IZQ','315-1951L',1],
+[C,'Faro Windstar 95-97 C/Ajustes IZQ','20-3005-01-1A',1],
+[C,'Calavera DG RAM PU 07-08 S/Foco Depo IZQ','017-0916-17',1],
+[C,'Defensa Chevy/Swing/Joy/Monza 01-03','',1],
+[C,'Calavera Figo 16-18 4P S/Arnes IZQ','FCNF0702',1],
+[C,'Espejo Acura MDX 07-09 DER','ELACMD07ER',1],
+[C,'Espejo Accent 18-22 Elect 3 Pines DER','ELHDAC18ER',1],
+[C,'Espejo Civic 06-11 Elect 4P 3 Pines IZQ','ELHCI06EL',1],
+[C,'Espejo HD Civic 06-11 Electrico DER 3 Pines','018-1302-12',1],
+[C,'Espejo DER Manual Negro Poroso C/Control Beat','',1],
+[C,'Espejo IZQ Manual Negro Poroso C/Control Beat','',1],
+[C,'Espejo KIA Optima 15-16 IZQ','ELKOP15EL',1],
+[C,'Espejo Electrico VW Pointer DER','AERV0201',2],
+[C,'Fascia Delantera NS D23/NP300 16-20 Corrugada','203-2350-01',1],
+[C,'Faro AUX 24V C11 Volvo 9700 HDLT','',2],
+[C,'Faro AUX Transparente 24V Baja C11 Volvo','',3],
+[C,'Faro Niebla Sentra 10-12','19-5785-A1-2B',1],
+[C,'Calavera IZQ S/Arnes (Rojo/Rojo/Blanco)','FCNC0702',1],
+[C,'Calavera AVEO 06 IZQ','11-B2720015B3',1],
+[C,'Calavera Bora 05-10 GLI INT S/Arnes IZQ','CVBO05LI',1],
+[C,'Calavera Chevy C2 04-08 S/Arnes DER','11-B4990015B3',1],
+[C,'Calavera Tsuru 1 85-87 IZQ','11-1430-01-6B',1],
+[C,'Control Eléctrico Edge Ford Fusion 06-09','',1],
+[C,'Control Eléctrico Elevador Golf 12-17','',1],
+[C,'Control Eléctrico Pointer 00-05 8 Pins','',1],
+[C,'Control Ventana RN Clio Euro 07-12 DEL IZQ','71052',1],
+[C,'Cuarto Lateral Neon 94-99','12-1503-01-1A',1],
+[C,'Cuarto Lateral Tsuru 84-87','18-11210005B3',1],
+[C,'Cuarto Punta Mazda Protege 323 97-98 Ambar IZQ','013-1906-07',1],
+[C,'Cuarto Punta Tsuru 85-87','17-1063-00-1A',1],
+[C,'Cuarto Tras Transporte 16-18 Reflejante','CUVTR16TR',1],
+[C,'Aleron DKA 01 Negro IZQ','ADFKA01NL',1],
+[C,'Elevador Cristal H100 06-14 Manual DER','8240643005',1],
+[C,'Espejo Concavo 6" Con Tornillos Trailer','1648300',1],
+[C,'Espejo Laguna 03-06 Elect Abat DER','ELRLA03ER',1],
+[C,'Espejo Matiz 06-15 Elect IZQ','ELCMT06EL',1],
+[C,'Espejo Polo Pointer 03-05 DER','ELVPLO3CLR',1],
+[C,'Espejo TY Camry 97-01 Elect P/Pintar IZQ','018-3002-09',1],
+[C,'Guia Defensa Trasera Journey 09-14 IZQ','GTDJO09L',1],
+[C,'Luna Espejo Chevy 94-08','530085202',1],
+[C,'Luna Espejo RN FLNC 11-17 C/Des DER','001-2608-02',1],
+[C,'Manija De Elevar Jetta 93-98 MB','18852',1],
+[C,'Manija Elev FT Pali-O 01-10 Perilla NGA','104942',1],
+[C,'Manija Exterior Bollager 01-07','MEPDVO01LHL',1],
+[C,'Manija Exterior C10 95-97 IZQ','MEPCS1095TL',1],
+[C,'Manija Exterior CV Spark 16-20 Trasera IZQ','106281',1],
+[C,'Manija Exterior DG ATS 00-12 DEL IZQ NGO','17429',1],
+[C,'Manija Exterior FD Thund/Cougr 96/97 IZQ','101005',1],
+[C,'Manija Exterior Nissan 87-08','MEPNPU87CCL',1],
+[C,'Manija INT BW Z3 96-02 Serie3 DER','106312',1],
+[C,'Manija INT HY Sonata 15-17 DEL/TRAS IZQ Plata','105243',1],
+[C,'Manija Interior Attitude 06-11 / Accent 07-11 IZQ','101645',1]]
+};
+</script>
+<script>
+/* ── Datos ── */
+const LOTES = [
+  { no:4, nombre:'LOTE FOCO LEDS',          cod:'8605028', codigos:20, monto:517238.61, lotes:20, xlote:'$20 mil', bono:1500, ico:'💡', ac:'#FF9F0A' },
+  { no:5, nombre:'LOTE FOCO HALOGENO',      cod:'8605029', codigos:2,  monto:178019.57, lotes:8,  xlote:'$20 mil', bono:1500, ico:'🔆', ac:'#FF6B57' },
+  { no:6, nombre:'LOTE FOCO INCANDESCENTE', cod:'8605030', codigos:32, monto:107945.82, lotes:5,  xlote:'$18 mil', bono:1500, ico:'🕯️', ac:'#30B0C7' },
+  { no:7, nombre:'LOTE COLISIÓN 1',         cod:'8605024', codigos:80, monto:50207.92,  lotes:1,  xlote:'$27 mil', bono:2000, ico:'🚗', ac:'#0A84FF' },
+  { no:8, nombre:'LOTE COLISIÓN 2',         cod:'8605024', codigos:80, monto:55949.04,  lotes:1,  xlote:'$27 mil', bono:2000, ico:'🚙', ac:'#5E5CE6' }
+];
+const $$ = n => '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const $0 = n => '$' + Math.round(n).toLocaleString('es-MX');
+const totMonto = LOTES.reduce((a, l) => a + l.monto, 0);
+const totLotes = LOTES.reduce((a, l) => a + l.lotes, 0);
+const totBono  = LOTES.reduce((a, l) => a + l.lotes * l.bono, 0);
+
+document.getElementById('pills').innerHTML = [
+  [LOTES.length, 'Lotes disponibles', '#5E5CE6'],
+  [totLotes, 'Lotes por vender', '#0A84FF'],
+  [$0(totMonto), 'Monto total', '#30B0C7'],
+  [$0(totBono), 'Bono potencial', '#FF9F0A']
+].map(p => `<div class="pill" style="--ac:${p[2]}"><b>${p[0]}</b><span>${p[1]}</span></div>`).join('');
+
+document.getElementById('grid').innerHTML = LOTES.map((l, i) => `
+  <div class="lote" style="--ac:${l.ac}" onclick="abrir(${i})">
+    <div class="lh"><div class="lic">${l.ico}</div>
+      <div><div class="lnm">${l.nombre}</div><div class="lno">Lote No. ${l.no}</div></div></div>
+    <div class="cod"><small>Código de facturación</small><b>${l.cod}</b>
+      <button onclick="event.stopPropagation();copiar('${l.cod}')">Copiar</button></div>
+    <div class="kp">
+      <div class="k big"><span>💰 Monto x LOTE</span><b>${l.xlote}</b><em>cada lote que cierres</em></div>
+      <div class="k"><span># Códigos</span><b>${l.codigos}</b></div>
+      <div class="k"><span># Lotes disponibles</span><b>${l.lotes}</b></div>
+      <div class="k wide sm"><span>Monto total de los ${l.lotes} lote(s) juntos</span><b>${$$(l.monto)}</b></div>
+      <div class="k wide sm"><span>Bono x lote</span><b>${$$(l.bono)}</b></div>
+    </div>
+    <div class="share"><div class="t"><span>Peso en el monto total</span><b>${(100 * l.monto / totMonto).toFixed(1)}%</b></div>
+      <div class="b"><i style="width:${Math.max(3, 100 * l.monto / totMonto)}%"></i></div></div>
+    <div class="bono"><em>🏆</em><div><b>Bono ${$$(l.bono)} por lote cerrado</b><span>Hasta ${$0(l.bono * l.lotes)} si cierras los ${l.lotes} lote(s)</span></div></div>
+    <div class="ver"><button>📋 Ver códigos del lote</button></div>
+  </div>`).join('');
+
+document.getElementById('tb').innerHTML = LOTES.map((l, i) => `
+  <tr class="clk" onclick="abrir(${i})" style="--ac:${l.ac}"><td><span class="chip no">${l.no}</span></td><td><b>${l.ico} ${l.nombre}</b></td>
+  <td><span class="chip cd">${l.cod}</span></td><td>${l.codigos}</td><td><b>${$$(l.monto)}</b></td><td>${l.lotes}</td>
+  <td>${l.xlote}</td><td><span class="chip bn">${$$(l.bono)}</span></td></tr>`).join('');
+document.getElementById('tf').innerHTML = `<tr><td colspan="3">Total</td><td>${LOTES.reduce((a, l) => a + l.codigos, 0)}</td>
+  <td>${$$(totMonto)}</td><td>${totLotes}</td><td></td><td></td></tr>`;
+
+/* ── Modal de códigos ── */
+Object.keys(COD).forEach(k => { COD[k] = COD[k].filter(r => r[3] != null && r[3] > 0); });
+let ACT = null;
+const foto = c => `https://resources.apymsa.com.mx/imagenes/FotosSpeed/${c}/${c}2a.jpg`;
+const qtyTxt = q => q == null ? '—' : q.toLocaleString('es-MX');
+/* No. de parte: el capturado; si falta, el modelo que viene en la descripción */
+function parte(r) {
+  if (r[2]) return r[2];
+  const m = r[1].match(/\d{1,3}x\d{2}/i) || r[1].match(/\b\d{2,4}\b/);
+  return m ? m[0] : '';
+}
+function abrir(i) {
+  const l = LOTES[i]; ACT = l; const rows = COD[l.no] || [];
+  const pzs = rows.reduce((a, r) => a + (r[3] || 0), 0);
+  document.getElementById('md').style.setProperty('--ac', l.ac);
+  document.getElementById('m-t').textContent = l.ico + ' ' + l.nombre;
+  document.getElementById('m-c').textContent = l.cod;
+  document.getElementById('m-n').textContent = rows.length + ' renglones';
+  document.getElementById('m-p').textContent = pzs.toLocaleString('es-MX') + ' pz';
+  document.getElementById('m-b').innerHTML = rows.map(r => `<tr>
+    <td style="width:66px"><div class="ph"><img loading="lazy" referrerpolicy="no-referrer" src="${foto(r[0])}"
+      onerror="this.remove()"><span style="position:absolute">📦</span></div></td>
+    <td><span class="chip cd">${r[0]}</span></td><td>${r[1]}</td><td>${parte(r)}</td><td><b>${qtyTxt(r[3])}</b></td></tr>`).join('');
+  document.getElementById('m-nota').textContent = l.no >= 7
+    ? 'Selección de piezas del lote; se factura todo con el código ' + l.cod + '.'
+    : 'Lista de códigos del lote. “—” = cantidad pendiente de confirmar.';
+  document.getElementById('mo').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function cerrar() { document.getElementById('mo').classList.remove('on'); document.body.style.overflow = ''; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrar(); });
+const nomArch = l => l.nombre.replace(/[^A-Za-z0-9ÁÉÍÓÚÑ]+/gi, '_');
+function loteExcel() {
+  const l = ACT, rows = COD[l.no] || [];
+  const filas = [['Código facturación lote', 'Código', 'Descripción', 'No. Parte', 'Cantidad']]
+    .concat(rows.map(r => [l.cod, r[0], r[1], parte(r), r[3] == null ? '' : r[3]]));
+  const ws = XLSX.utils.aoa_to_sheet(filas);
+  ws['!cols'] = [{wch:22},{wch:12},{wch:52},{wch:18},{wch:10}];
+  const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, 'Códigos');
+  XLSX.writeFile(wb, nomArch(l) + '.xlsx');
+}
+function imgB64(c) {
+  return new Promise(res => {
+    const im = new Image(); im.crossOrigin = 'anonymous';
+    const t = setTimeout(() => res(null), 8000);
+    im.onload = () => { clearTimeout(t); try {
+      const cv = document.createElement('canvas'); cv.width = im.naturalWidth; cv.height = im.naturalHeight;
+      const x = cv.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height); x.drawImage(im, 0, 0);
+      res(cv.toDataURL('image/jpeg', .85)); } catch (e) { res(null); } };
+    im.onerror = () => { clearTimeout(t); res(null); };
+    im.src = foto(c);
+  });
+}
+async function lotePDF() {
+  const l = ACT, rows = COD[l.no] || [];
+  if (!window.jspdf) { aviso('No cargó la librería PDF'); return; }
+  aviso('Generando PDF con fotos…');
+  const cods = [...new Set(rows.map(r => r[0]))], IM = {};
+  await Promise.all(cods.map(async c => { IM[c] = await imgB64(c); }));
+  const doc = new jspdf.jsPDF({ unit: 'pt', format: 'letter' });
+  const W = doc.internal.pageSize.getWidth();
+  doc.setFillColor(27, 43, 75); doc.rect(0, 0, W, 78, 'F');
+  doc.setTextColor(255); doc.setFont('helvetica', 'bold'); doc.setFontSize(18);
+  doc.text(l.nombre, 36, 36);
+  doc.setFontSize(10); doc.setFont('helvetica', 'normal');
+  doc.text('APYMSA · Lotes Especiales 2026', 36, 54);
+  doc.text('Código de facturación: ' + l.cod + '   |   Bono por lote: ' + $$(l.bono) + '   |   ' + l.lotes + ' lote(s)', 36, 68);
+  doc.autoTable({
+    startY: 92,
+    head: [['Foto', 'Código', 'Descripción', 'No. Parte', 'Cant']],
+    body: rows.map(r => ['', r[0], r[1], parte(r), qtyTxt(r[3])]),
+    styles: { fontSize: 8.5, cellPadding: 4, minCellHeight: 42, valign: 'middle' },
+    headStyles: { fillColor: [42, 63, 105], minCellHeight: 20 },
+    columnStyles: { 0: { cellWidth: 50 }, 4: { halign: 'right' } },
+    alternateRowStyles: { fillColor: [244, 247, 251] },
+    didDrawCell: d => {
+      if (d.section === 'body' && d.column.index === 0) {
+        const im = IM[rows[d.row.index][0]];
+        if (im) doc.addImage(im, 'JPEG', d.cell.x + 5, d.cell.y + 3, 36, 36);
+        else { doc.setFontSize(14); doc.text('·', d.cell.x + 23, d.cell.y + 22); }
+      } },
+    didDrawPage: d => { doc.setFontSize(8); doc.setTextColor(120);
+      doc.text('Página ' + doc.internal.getNumberOfPages(), W - 70, doc.internal.pageSize.getHeight() - 20); }
+  });
+  doc.save(nomArch(l) + '.pdf');
+}
+function vista(v) {
+  document.getElementById('grid').style.display = v === 'cards' ? '' : 'none';
+  document.getElementById('tw').style.display = v === 'tabla' ? 'block' : 'none';
+  document.getElementById('v-cards').classList.toggle('on', v === 'cards');
+  document.getElementById('v-tabla').classList.toggle('on', v === 'tabla');
+}
+function aviso(t) {
+  const e = document.getElementById('toast'); e.textContent = t; e.classList.add('on');
+  setTimeout(() => e.classList.remove('on'), 1800);
+}
+function copiar(c) {
+  const ok = () => aviso('Código ' + c + ' copiado');
+  if (navigator.clipboard) navigator.clipboard.writeText(c).then(ok, ok); else ok();
+}
+function excel() {
+  const filas = [['No.', 'LOTE', 'Código Facturación Lote', '# Códigos', '$ Monto Total', '# Lotes', 'Monto x Lote', '$ Bono x lote']]
+    .concat(LOTES.map(l => [l.no, l.nombre, l.cod, l.codigos, l.monto, l.lotes, l.xlote, l.bono]));
+  if (window.XLSX) {
+    const ws = XLSX.utils.aoa_to_sheet(filas);
+    ws['!cols'] = [{wch:6},{wch:28},{wch:24},{wch:11},{wch:16},{wch:9},{wch:13},{wch:14}];
+    const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, 'Lotes 2026');
+    XLSX.writeFile(wb, 'Lotes_Especiales_2026.xlsx');
+  } else {
+    const csv = '﻿' + filas.map(r => r.map(v => '"' + String(v).replace(/"/g, '""') + '"').join(',')).join('\n');
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+    a.download = 'Lotes_Especiales_2026.csv'; a.click();
+  }
+}
+</script>
+</body>
+</html>
