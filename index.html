@@ -139,6 +139,10 @@ tbody tr.clk{cursor:pointer}
 .ph{width:54px;height:54px;border-radius:10px;background:#F2F5F9;display:flex;align-items:center;justify-content:center;font-size:20px;overflow:hidden;position:relative}
 .ph img{position:relative;z-index:1;background:#fff}
 .ph img{width:100%;height:100%;object-fit:contain}
+.subs{display:none;gap:6px;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid var(--line);background:#F7F9FC}
+.subs.on{display:flex}
+.subs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:800;cursor:pointer;color:#4B5A6C}
+.subs button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .mn{padding:9px 16px;font-size:11px;color:var(--muted);background:#F7F9FC;border-top:1px solid var(--line)}
 .toast{position:fixed;z-index:60;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#1B2733;color:#fff;border-radius:999px;padding:10px 18px;font-size:12px;font-weight:700;opacity:0;pointer-events:none;transition:all .25s}
 .toast.on{opacity:1;transform:translateX(-50%)}
@@ -173,7 +177,7 @@ tbody tr.clk{cursor:pointer}
       <span class="tag">Líder → Gerente Divisional</span></div>
     <div class="step" style="--ac:#FF9F0A"><span class="ic">🏆</span><span class="n">4</span>
       <h3>¡Cobra tu bono!</h3><p>El bono se incluirá dentro de tu compensación, notificando a tu líder directo. Se acredita al cerrar el lote completo y varía según el lote.</p>
-      <span class="tag">★ De $1,500 a $2,000 por lote</span></div>
+      <span class="tag">★ De $1,000 a $2,000 por lote</span></div>
   </div>
 
   <!-- LOTES -->
@@ -196,6 +200,7 @@ tbody tr.clk{cursor:pointer}
     <div class="mh"><div class="r1"><h3 id="m-t"></h3><button class="x" onclick="cerrar()">✕</button></div>
       <div class="r2"><span class="c">Código facturación <b id="m-c"></b></span><span class="c" id="m-n"></span><span class="c" id="m-p"></span>
         <span class="sp"></span><button class="dl xl" onclick="loteExcel()">⬇ Excel</button><button class="dl pd" onclick="lotePDF()">⬇ PDF</button></div></div>
+    <div class="subs" id="m-subs"></div>
     <div class="mb"><table><thead><tr><th></th><th>Código</th><th>Descripción</th><th>No. Parte</th><th>Cant</th></tr></thead><tbody id="m-b"></tbody></table></div>
     <div class="mn" id="m-nota"></div>
   </div>
@@ -208,6 +213,278 @@ tbody tr.clk{cursor:pointer}
 /* ── Códigos por lote: [código, descripción, no. parte, cantidad] ── */
 const C = '8605024';
 const COD = {
+1: [
+["0183001","Amortiguador Delantero Chevy 94-12 Chevy Pick Up 98-01 Gr","GP148",3,"Lote #1"],
+["0183002","Amortiguador Delantero Chevrolet Suburban 1500 92-99 GROB","G5091",6,"Lote #1"],
+["0183003","Amortiguador Trasero Chevrolet Suburban 1500 92-99 GROB","G5092",8,"Lote #1"],
+["0183004","Amortiguador Delantero Grand Cherokee 99-04 Grand Cheroke","G5104",6,"Lote #1"],
+["0183005","Amortiguador Trasero Grand Cherokee 99-04 Grand Cherokee","G5105",5,"Lote #1"],
+["0183006","Amortiguador Delantero Cirrus 95-06 Stratus 95-06 GROB","GP209",5,"Lote #1"],
+["0183007","Amortiguador Trasero Cirrus 95-06 Stratus 95-06 GROB","GP210",4,"Lote #1"],
+["0183008","Amortiguador Delantero F-250 Super Duty 4X4 99-09 GROB","G5053",3,"Lote #1"],
+["0183009","Amortiguador Trasero F-250 Super Duty 4X4 99-09 GROB","G5054",4,"Lote #1"],
+["0183010","Amortiguador Delantero Explorer 95-03 Ranger 04-12 Ranger","G5182",5,"Lote #1"],
+["0183011","Amortiguador Trasero Explorer 95-03 Ranger 04-12 Ranger 4","G5183",7,"Lote #1"],
+["0183012","Amortiguador Delantero Nissan Pick-Up 65-08 GROB","G2219",7,"Lote #1"],
+["0183015","Amortiguador Trasero Nissan Pick-Up 94-08 GROB","G2280",5,"Lote #1"],
+["0183017","Amortiguador Delantero Izquierdo Con Tope Tsubame 92-11","GP105",1,"Lote #1"],
+["0183019","Amortiguador Trasero Izquierdo Con Tope Tsuru Iii 92-16","GP107",2,"Lote #1"],
+["0183039","Amortiguador Delantero Mazda 3 03-13 Mazda 5 04-11 GROB","4709005",1,"Lote #1"],
+["0183049","Amortiguador Trasero NP300 4X2 09-15 GROB","6709037",1,"Lote #1"],
+["0183050","Amortiguador Delantero NP300 4X2 09-15 GROB","6709038",1,"Lote #1"],
+["0183059","Amortiguador Trasero A3 03-13 Altea 08-14 Cupra 14-18 Gro","9309004",1,"Lote #1"],
+["0183071","Amortiguador Trasero Fiesta (brasil) 03-11 GROB","G2386",1,"Lote #1"],
+["0183077","Amortiguador Delantero Blazer S-10 83-04 S-10 Pick Up 83-","G5096",1,"Lote #1"],
+["0183083","Amortiguador Trasero F-150 97-03 F-250 97-09 F-250 Light","G5187",1,"Lote #1"],
+["0183088","Amortiguador Trasero Avalanche 2500 00-07 C-3500 00-06 Ch","G5200",1,"Lote #1"],
+["0183089","Amortiguador Delantero Cheyenne 99-06 Silverado 1500 99-0","G5206",1,"Lote #1"],
+["0183105","Amortiguador Trasero Derecho Izquierdo Malibu 04-07 GROB","2709001",2,"Lote #1"],
+["0183107","Amortiguador Delantero Derecho Fiesta 11-18 GROB","4009044",1,"Lote #1"],
+["0183110","Amortiguador Trasero Derecho Izquierdo Escape 01-12 Escap","G5172",2,"Lote #1"],
+["0183113","Amortiguador Delantero Derecho Izquierdo Aztek 97-05 Gran","GP274",2,"Lote #1"],
+["0183117","Amortiguador Trasero Derecho Izquierdo Avalanche 1500 4X4","G5093",1,"Lote #1"],
+["0183119","Amortiguador Delantero Derecho Escape 01-12 Escape 4X4 01","3009039",1,"Lote #1"],
+["0183128","Amortiguador Delantero Derecho Tornado 03-11 GROB","2709018",1,"Lote #1"],
+["0183129","Amortiguador Delantero Derecho Izquierdo Frontier 05-15 F","6709068",2,"Lote #1"],
+["0183130","Amortiguador Delantero Izquierdo Tornado 03-11 GROB","2709017",1,"Lote #1"],
+["0183131","Amortiguador Trasero Derecho Izquierdo Chrysler 200 11-14","3009048",2,"Lote #1"],
+["0183147","Amortiguador Delantero Derecho March 12-17 GROB","6709056",1,"Lote #1"],
+["0183152","Amortiguador Delantero Derecho Izquierdo RAM-700 14-17 St","3009050",1,"Lote #1"],
+["0183158","Amortiguador Delantero Derecho Izquierdo RAM-1500 4X4 94-","G5101",2,"Lote #1"],
+["0183183","Amortiguador Delantero Derecho Yaris 06-15 GROB","8709028",1,"Lote #1"],
+["0183199","Amortiguador Trasero Derecho Izquierdo Altima 02-06 GROB","6709005",2,"Lote #1"],
+["0183201","Amortiguador Delantero Izquierdo EQUI1X 04-06 EQUI1X 4X4","2709011",1,"Lote #1"],
+["0183205","Amortiguador Delantero Derecho Altima 07-12 GROB","6709044",1,"Lote #1"],
+["0183232","Amortiguador Trasero Derecho Izquierdo Dart K 86-95 Lebar","G2221",2,"Lote #1"],
+["0183283","Amortiguador Trasero Derecho Izquierdo Escalade 15-16 2ER","2709089",2,"Lote #1"],
+["0183000","Amortiguador Trasero Chevy 94-12 Corsa 02-09 GROB","G2291",2,"Lote #2"],
+["0183001","Amortiguador Delantero Chevy 94-12 Chevy Pick Up 98-01 Gr","GP148",3,"Lote #2"],
+["0183002","Amortiguador Delantero Chevrolet Suburban 1500 92-99 GROB","G5091",6,"Lote #2"],
+["0183003","Amortiguador Trasero Chevrolet Suburban 1500 92-99 GROB","G5092",8,"Lote #2"],
+["0183004","Amortiguador Delantero Grand Cherokee 99-04 Grand Cheroke","G5104",6,"Lote #2"],
+["0183005","Amortiguador Trasero Grand Cherokee 99-04 Grand Cherokee","G5105",5,"Lote #2"],
+["0183006","Amortiguador Delantero Cirrus 95-06 Stratus 95-06 GROB","GP209",5,"Lote #2"],
+["0183007","Amortiguador Trasero Cirrus 95-06 Stratus 95-06 GROB","GP210",4,"Lote #2"],
+["0183008","Amortiguador Delantero F-250 Super Duty 4X4 99-09 GROB","G5053",4,"Lote #2"],
+["0183009","Amortiguador Trasero F-250 Super Duty 4X4 99-09 GROB","G5054",3,"Lote #2"],
+["0183010","Amortiguador Delantero Explorer 95-03 Ranger 04-12 Ranger","G5182",5,"Lote #2"],
+["0183011","Amortiguador Trasero Explorer 95-03 Ranger 04-12 Ranger 4","G5183",7,"Lote #2"],
+["0183012","Amortiguador Delantero Nissan Pick-Up 65-08 GROB","G2219",7,"Lote #2"],
+["0183015","Amortiguador Trasero Nissan Pick-Up 94-08 GROB","G2280",5,"Lote #2"],
+["0183016","Amortiguador Delantero Derecho C/Tope Tsubame 92-11 Tsur","GP104",1,"Lote #2"],
+["0183019","Amortiguador Trasero Izquierdo Con Tope Tsuru Iii 92-16","GP107",2,"Lote #2"],
+["0183023","Amortiguador Delantero Aveo 06-18 Pontiac G3 06-11 GROB","2709032",1,"Lote #2"],
+["0183033","Amortiguador Trasero Caliber 06-10 Compass 07-15 Patriot","3009007",1,"Lote #2"],
+["0183042","Amortiguador Delantero Attitude 15-18 Attrage 16-17 Mirag","6409038",1,"Lote #2"],
+["0183043","Amortiguador Trasero Tiida 06-18 Versa USA 07-12 GROB","6709016",1,"Lote #2"],
+["0183049","Amortiguador Trasero NP300 4X2 09-15 GROB","6709037",1,"Lote #2"],
+["0183050","Amortiguador Delantero NP300 4X2 09-15 GROB","6709038",1,"Lote #2"],
+["0183059","Amortiguador Trasero A3 03-13 Altea 08-14 Cupra 14-18 Gro","9309004",1,"Lote #2"],
+["0183062","Amortiguador Delantero Nitro 06-12 Liberty 01-13 GROB","G0010",1,"Lote #2"],
+["0183071","Amortiguador Trasero Fiesta (brasil) 03-11 GROB","G2386",1,"Lote #2"],
+["0183073","Amortiguador Trasero A3 97-00 Leon 01-06 Toledo 01-06 Bee","G2430",1,"Lote #2"],
+["0183078","Amortiguador Trasero Escalade 99-00 Blazer S-10 83-04 Gro","G5097",1,"Lote #2"],
+["0183081","Amortiguador Delantero E-150 92-07 Ranger 90-97 Ranger 4X","G5107",1,"Lote #2"],
+["0183083","Amortiguador Trasero F-150 97-03 F-250 97-09 F-250 Light","G5187",1,"Lote #2"],
+["0183095","Amortiguador Delantero Sentra 01-06 GROB","GP252",1,"Lote #2"],
+["0183106","Amortiguador Delantero Izquierdo Mazda 3 03-13 Mazda 5 04","4709006",1,"Lote #2"],
+["0183109","Amortiguador Delantero Izquierdo Fiesta 11-18 GROB","4009045",1,"Lote #2"],
+["0183116","Amortiguador Delantero Derecho Aprio 07-11 Logan 07-11 Sa","6709028",1,"Lote #2"],
+["0183123","Amortiguador Delantero Derecho Izquierdo Durango 11-15 Gr","3009038",2,"Lote #2"],
+["0183126","Amortiguador Delantero Derecho Izquierdo C-10 63-72 C-15","G5039",2,"Lote #2"],
+["0183128","Amortiguador Delantero Derecho Tornado 03-11 GROB","2709018",1,"Lote #2"],
+["0183146","Amortiguador Delantero Derecho Altima 02-06 Maxima 04-08","6709004",1,"Lote #2"],
+["0183159","Amortiguador Trasero Derecho Izquierdo Rav 4 06-18 GROB","8709032",2,"Lote #2"],
+["0183168","Amortiguador Delantero Derecho Izquierdo Blazer S-10 4X4","G5124",2,"Lote #2"],
+["0183173","Amortiguador Trasero Derecho Izquierdo Ranger 04-12","4009019",2,"Lote #2"],
+["0183199","Amortiguador Trasero Derecho Izquierdo Altima 02-06 GROB","6709005",2,"Lote #2"],
+["0183268","Amortiguador Trasero Derecho Izquierdo Expedition 97-02 E","G5185",2,"Lote #2"],
+["0183272","Amortiguador Delantero Derecho Izquierdo L 200 08-17 GROB","6409030",2,"Lote #2"],
+["0183309","Amortiguador Trasero Derecho Izquierdo Tornado 11-18 GROB","2709079",2,"Lote #2"],
+["0183338","Amortiguador Delantero Izquierdo I10 11-14 GROB 3009035","3009035",1,"Lote #2"],
+["0183341","Amortiguador Delantero Derecho I10 11-14 GROB 3009034","3009034",1,"Lote #2"],
+["0183000","Amortiguador Trasero Chevy 94-12 Corsa 02-09 GROB","G2291",2,"Lote #3"],
+["0183001","Amortiguador Delantero Chevy 94-12 Chevy Pick Up 98-01 Gr","GP148",3,"Lote #3"],
+["0183002","Amortiguador Delantero Chevrolet Suburban 1500 92-99 GROB","G5091",5,"Lote #3"],
+["0183003","Amortiguador Trasero Chevrolet Suburban 1500 92-99 GROB","G5092",8,"Lote #3"],
+["0183004","Amortiguador Delantero Grand Cherokee 99-04 Grand Cheroke","G5104",6,"Lote #3"],
+["0183005","Amortiguador Trasero Grand Cherokee 99-04 Grand Cherokee","G5105",5,"Lote #3"],
+["0183006","Amortiguador Delantero Cirrus 95-06 Stratus 95-06 GROB","GP209",5,"Lote #3"],
+["0183007","Amortiguador Trasero Cirrus 95-06 Stratus 95-06 GROB","GP210",4,"Lote #3"],
+["0183008","Amortiguador Delantero F-250 Super Duty 4X4 99-09 GROB","G5053",4,"Lote #3"],
+["0183009","Amortiguador Trasero F-250 Super Duty 4X4 99-09 GROB","G5054",4,"Lote #3"],
+["0183010","Amortiguador Delantero Explorer 95-03 Ranger 04-12 Ranger","G5182",5,"Lote #3"],
+["0183011","Amortiguador Trasero Explorer 95-03 Ranger 04-12 Ranger 4","G5183",7,"Lote #3"],
+["0183012","Amortiguador Delantero Nissan Pick-Up 65-08 GROB","G2219",7,"Lote #3"],
+["0183015","Amortiguador Trasero Nissan Pick-Up 94-08 GROB","G2280",5,"Lote #3"],
+["0183017","Amortiguador Delantero Izquierdo Con Tope Tsubame 92-11","GP105",1,"Lote #3"],
+["0183033","Amortiguador Trasero Caliber 06-10 Compass 07-15 Patriot","3009007",1,"Lote #3"],
+["0183038","Amortiguador Trasero Ecosport 03-12 GROB","4009011",1,"Lote #3"],
+["0183042","Amortiguador Delantero Attitude 15-18 Attrage 16-17 Mirag","6409038",1,"Lote #3"],
+["0183045","Amortiguador Delantero Tiida 06-18 Versa USA 07-12 GROB","6709018",1,"Lote #3"],
+["0183049","Amortiguador Trasero NP300 4X2 09-15 GROB","6709037",1,"Lote #3"],
+["0183050","Amortiguador Delantero NP300 4X2 09-15 GROB","6709038",1,"Lote #3"],
+["0183059","Amortiguador Trasero A3 03-13 Altea 08-14 Cupra 14-18 Gro","9309004",1,"Lote #3"],
+["0183078","Amortiguador Trasero Escalade 99-00 Blazer S-10 83-04 Gro","G5097",1,"Lote #3"],
+["0183081","Amortiguador Delantero E-150 92-07 Ranger 90-97 Ranger 4X","G5107",1,"Lote #3"],
+["0183107","Amortiguador Delantero Derecho Fiesta 11-18 GROB","4009044",1,"Lote #3"],
+["0183114","Amortiguador Trasero Derecho Izquierdo Civic 06-11 Crx 06","5009005",2,"Lote #3"],
+["0183115","Amortiguador Trasero Derecho Izquierdo Atos 02-12 GROB","G2482",2,"Lote #3"],
+["0183119","Amortiguador Delantero Derecho Escape 01-12 Escape 4X4 01","3009039",1,"Lote #3"],
+["0183124","Amortiguador Delantero Derecho Izquierdo Enclave 08-12 AC","2709058",2,"Lote #3"],
+["0183133","Amortiguador Trasero Derecho Izquierdo Platina 02-10 Clio","G2480",2,"Lote #3"],
+["0183155","Amortiguador Delantero Izquierdo Altima 02-06 Maxima 04-0","6709003",1,"Lote #3"],
+["0183179","Amortiguador Delantero Derecho Izquierdo F-150 04-13 Lobo","4009020",1,"Lote #3"],
+["0183202","Amortiguador Delantero Iquierdo X-Trail 01-07 GROB","G4361",1,"Lote #3"],
+["0183203","Amortiguador Trasero Derecho Izquierdo Tornado 03-11 GROB","2709019",2,"Lote #3"],
+["0183218","Amortiguador Delantero Derecho Rav 4 06-12 GROB","8709030",1,"Lote #3"],
+["0183221","Amortiguador Delantero Izquierdo Altima 07-12 GROB","6709045",1,"Lote #3"],
+["0183231","Amortiguador Delantero Derecho Izquierdo Ka 01-08_x000D_ GROB","GP176",2,"Lote #3"],
+["0183243","Amortiguador Delantero Derecho Izquierdo Ranger 13-17 Gr","4009040",2,"Lote #3"],
+["0183260","Amortiguador Delantero Derecho Izquierdo Tacoma 05-15 Tac","8709044",2,"Lote #3"],
+["0183332","Amortiguador Trasero Derecho Izquierdo Atlantic 77-87 Car","G2161",2,"Lote #3"],
+["0183350","Amortiguador Trasero Kicks 16-19 GROB","6709091",1,"Lote #3"],
+["0183001","Amortiguador Delantero Chevy 94-12 Chevy Pick Up 98-01 Gr","GP148",3,"Lote #4"],
+["0183002","Amortiguador Delantero Chevrolet Suburban 1500 92-99 GROB","G5091",5,"Lote #4"],
+["0183003","Amortiguador Trasero Chevrolet Suburban 1500 92-99 GROB","G5092",8,"Lote #4"],
+["0183004","Amortiguador Delantero Grand Cherokee 99-04 Grand Cheroke","G5104",5,"Lote #4"],
+["0183005","Amortiguador Trasero Grand Cherokee 99-04 Grand Cherokee","G5105",6,"Lote #4"],
+["0183006","Amortiguador Delantero Cirrus 95-06 Stratus 95-06 GROB","GP209",4,"Lote #4"],
+["0183007","Amortiguador Trasero Cirrus 95-06 Stratus 95-06 GROB","GP210",4,"Lote #4"],
+["0183008","Amortiguador Delantero F-250 Super Duty 4X4 99-09 GROB","G5053",3,"Lote #4"],
+["0183009","Amortiguador Trasero F-250 Super Duty 4X4 99-09 GROB","G5054",4,"Lote #4"],
+["0183010","Amortiguador Delantero Explorer 95-03 Ranger 04-12 Ranger","G5182",7,"Lote #4"],
+["0183011","Amortiguador Trasero Explorer 95-03 Ranger 04-12 Ranger 4","G5183",7,"Lote #4"],
+["0183012","Amortiguador Delantero Nissan Pick-Up 65-08 GROB","G2219",7,"Lote #4"],
+["0183015","Amortiguador Trasero Nissan Pick-Up 94-08 GROB","G2280",5,"Lote #4"],
+["0183016","Amortiguador Delantero Derecho C/Tope Tsubame 92-11 Tsur","GP104",2,"Lote #4"],
+["0183017","Amortiguador Delantero Izquierdo Con Tope Tsubame 92-11","GP105",1,"Lote #4"],
+["0183025","Amortiguador Trasero Matiz 06-15 GROB","2709039",1,"Lote #4"],
+["0183026","Amortiguador Delantero Escalade 07-14 Avalanche 1500 07-1","2709044",1,"Lote #4"],
+["0183039","Amortiguador Delantero Mazda 3 03-13 Mazda 5 04-11 GROB","4709005",1,"Lote #4"],
+["0183049","Amortiguador Trasero NP300 4X2 09-15 GROB","6709037",1,"Lote #4"],
+["0183050","Amortiguador Delantero NP300 4X2 09-15 GROB","6709038",1,"Lote #4"],
+["0183063","Amortiguador Trasero Nitro 06-12 Liberty 01-13 GROB","G0011",1,"Lote #4"],
+["0183064","Amortiguador Trasero Brasilia 74-81 Sedan VW 52-72 Sedan","G2034",2,"Lote #4"],
+["0183067","Amortiguador Delantero Astro Minivan 98-05 Caprice 67-82","G2276",2,"Lote #4"],
+["0183071","Amortiguador Trasero Fiesta (brasil) 03-11 GROB","G2386",2,"Lote #4"],
+["0183075","Amortiguador Trasero Sentra 01-06 GROB","G2454",2,"Lote #4"],
+["0183077","Amortiguador Delantero Blazer S-10 83-04 S-10 Pick Up 83-","G5096",1,"Lote #4"],
+["0183082","Amortiguador Delantero Expedition 97-02 F-150 97-03 F-250","G5184",1,"Lote #4"],
+["0183083","Amortiguador Trasero F-150 97-03 F-250 97-09 F-250 Light","G5187",1,"Lote #4"],
+["0183088","Amortiguador Trasero Avalanche 2500 00-07 C-3500 00-06 Ch","G5200",1,"Lote #4"],
+["0183089","Amortiguador Delantero Cheyenne 99-06 Silverado 1500 99-0","G5206",1,"Lote #4"],
+["0183104","Amortiguador Trasero Derecho Izquierdo Avenger 07-15 Sebr","3009030",2,"Lote #4"],
+["0183135","Amortiguador Trasero Derecho Izquierso Civic 01-05 Crx 01","GP418",2,"Lote #4"],
+["0183165","Amortiguador Delantero Derecho Civic 06-11 Crx 06-10 GROB","5009004",1,"Lote #4"],
+["0183170","Amortiguador Delantero Derecho Izquierdo Expedition 4X4 97-02 F-250 4 GROB G5237","G5237",2,"Lote #4"],
+["0183192","Amortiguador Delantero Izquierdo Yaris 06-15 GROB","8709029",1,"Lote #4"],
+["0183207","Amortiguador Trasero Derecho Izquierdo Rogue 08-14 X-Trai","6709027",2,"Lote #4"],
+["0183209","Amortiguador Delantero Derecho EQUI1X 04-06 EQUI1X 4X4 04","2709012",1,"Lote #4"],
+["0183223","Amortiguador Delantero Izquierdo Hhr 05-11 Pontiac G4 05-","2709035",1,"Lote #4"],
+["0183237","Amortiguador Delantero Izquierdo Rav 4 06-12 GROB","8709031",1,"Lote #4"],
+["0183248","Amortiguador Trasero Derecho X-Trail 01-07 GROB","G4362",1,"Lote #4"],
+["0183311","Amortiguador Trasero Derecho Izquierdo Ranger 13-17 GROB","4009039",2,"Lote #4"],
+["0183321","Amortiguador Delantero Izquierdo Avanza 12-18 GROB","8709113",1,"Lote #4"],
+["0183345","Amortiguador Delantero Civic 03-05 GROB","5009027",1,"Lote #4"],
+["0183000","Amortiguador Trasero Chevy 94-12 Corsa 02-09 GROB","G2291",1,"Lote #5"],
+["0183001","Amortiguador Delantero Chevy 94-12 Chevy Pick Up 98-01 Gr","GP148",3,"Lote #5"],
+["0183002","Amortiguador Delantero Chevrolet Suburban 1500 92-99 GROB","G5091",5,"Lote #5"],
+["0183003","Amortiguador Trasero Chevrolet Suburban 1500 92-99 GROB","G5092",8,"Lote #5"],
+["0183004","Amortiguador Delantero Grand Cherokee 99-04 Grand Cheroke","G5104",5,"Lote #5"],
+["0183005","Amortiguador Trasero Grand Cherokee 99-04 Grand Cherokee","G5105",5,"Lote #5"],
+["0183006","Amortiguador Delantero Cirrus 95-06 Stratus 95-06 GROB","GP209",4,"Lote #5"],
+["0183007","Amortiguador Trasero Cirrus 95-06 Stratus 95-06 GROB","GP210",5,"Lote #5"],
+["0183008","Amortiguador Delantero F-250 Super Duty 4X4 99-09 GROB","G5053",4,"Lote #5"],
+["0183009","Amortiguador Trasero F-250 Super Duty 4X4 99-09 GROB","G5054",4,"Lote #5"],
+["0183010","Amortiguador Delantero Explorer 95-03 Ranger 04-12 Ranger","G5182",6,"Lote #5"],
+["0183011","Amortiguador Trasero Explorer 95-03 Ranger 04-12 Ranger 4","G5183",7,"Lote #5"],
+["0183012","Amortiguador Delantero Nissan Pick-Up 65-08 GROB","G2219",8,"Lote #5"],
+["0183015","Amortiguador Trasero Nissan Pick-Up 94-08 GROB","G2280",4,"Lote #5"],
+["0183019","Amortiguador Trasero Izquierdo Con Tope Tsuru Iii 92-16","GP107",1,"Lote #5"],
+["0183027","Amortiguador Delantero Beat 18-19 Spark 11-15 GROB","2709052",1,"Lote #5"],
+["0183043","Amortiguador Trasero Tiida 06-18 Versa USA 07-12 GROB","6709016",1,"Lote #5"],
+["0183044","Amortiguador Delantero Tiida 06-18 Versa USA 07-12 GROB","6709017",1,"Lote #5"],
+["0183049","Amortiguador Trasero NP300 4X2 09-15 GROB","6709037",1,"Lote #5"],
+["0183050","Amortiguador Delantero NP300 4X2 09-15 GROB","6709038",1,"Lote #5"],
+["0183059","Amortiguador Trasero A3 03-13 Altea 08-14 Cupra 14-18 Gro","9309004",1,"Lote #5"],
+["0183061","Amortiguador Trasero Toledo 13-18 Vento 14-18 GROB","9309019",1,"Lote #5"],
+["0183063","Amortiguador Trasero Nitro 06-12 Liberty 01-13 GROB","G0011",1,"Lote #5"],
+["0183106","Amortiguador Delantero Izquierdo Mazda 3 03-13 Mazda 5 04","4709006",1,"Lote #5"],
+["0183109","Amortiguador Delantero Izquierdo Fiesta 11-18 GROB","4009045",1,"Lote #5"],
+["0183112","Amortiguador Delantero Derecho Izquierdo Windstar 95-04 G","GP211",2,"Lote #5"],
+["0183130","Amortiguador Delantero Izquierdo Tornado 03-11 GROB","2709017",1,"Lote #5"],
+["0183137","Amortiguador Delantero Derecho Izquierdo Escalade 02-05 E","G5168",2,"Lote #5"],
+["0183154","Amortiguador Delantero Derecho Izquierdo Caravan 08-15 Gr","3009026",2,"Lote #5"],
+["0183163","Amortiguador Trasero Derecho Izquierdo Sonic 11-18 GROB","2709066",2,"Lote #5"],
+["0183169","Amortiguador Delantero Derecho Izquierdo Bora 05-11_x000D_ _x000D_ G","9309013",2,"Lote #5"],
+["0183178","Amortiguador Delantero Izquierdo Civic 06-11 Crx 06-10 Gr","5009003",1,"Lote #5"],
+["0183191","Amortiguador Delantero Derecho Izquierdo Attitude 06-11 G","G4360",1,"Lote #5"],
+["0183213","Amortiguador Trasero Derecho Izquierdo Comanche 86-92 Fr","G5234",2,"Lote #5"],
+["0183247","Amortiguador Delantero Dercho Izquierdo 2ERRA 3500 11-18","2709070",2,"Lote #5"],
+["0183267","Amortiguador Delantero Derecho Izquierdo Explorer 03-05 M","4009000",2,"Lote #5"],
+["0183278","Amortiguador Trasero Derecho Izquierdo Frontier 05-15 Fro","6709069",2,"Lote #5"],
+["0183310","Amortiguador Delantero Derecho Avanza 12-18 GROB","8709114",1,"Lote #5"],
+["0183318","Amortiguador Trasero Derecho Izquierdo Sprinter 07-11 CRA","6109005",2,"Lote #5"],
+["0183350","Amortiguador Trasero Kicks 16-19 GROB","6709091",1,"Lote #5"],
+["0183001","Amortiguador Delantero Chevy 94-12 Chevy Pick Up 98-01 Gr","GP148",3,"Lote #6"],
+["0183002","Amortiguador Delantero Chevrolet Suburban 1500 92-99 GROB","G5091",5,"Lote #6"],
+["0183003","Amortiguador Trasero Chevrolet Suburban 1500 92-99 GROB","G5092",8,"Lote #6"],
+["0183004","Amortiguador Delantero Grand Cherokee 99-04 Grand Cheroke","G5104",5,"Lote #6"],
+["0183005","Amortiguador Trasero Grand Cherokee 99-04 Grand Cherokee","G5105",5,"Lote #6"],
+["0183006","Amortiguador Delantero Cirrus 95-06 Stratus 95-06 GROB","GP209",4,"Lote #6"],
+["0183007","Amortiguador Trasero Cirrus 95-06 Stratus 95-06 GROB","GP210",5,"Lote #6"],
+["0183008","Amortiguador Delantero F-250 Super Duty 4X4 99-09 GROB","G5053",4,"Lote #6"],
+["0183009","Amortiguador Trasero F-250 Super Duty 4X4 99-09 GROB","G5054",4,"Lote #6"],
+["0183010","Amortiguador Delantero Explorer 95-03 Ranger 04-12 Ranger","G5182",6,"Lote #6"],
+["0183011","Amortiguador Trasero Explorer 95-03 Ranger 04-12 Ranger 4","G5183",7,"Lote #6"],
+["0183012","Amortiguador Delantero Nissan Pick-Up 65-08 GROB","G2219",8,"Lote #6"],
+["0183015","Amortiguador Trasero Nissan Pick-Up 94-08 GROB","G2280",4,"Lote #6"],
+["0183016","Amortiguador Delantero Derecho C/Tope Tsubame 92-11 Tsur","GP104",2,"Lote #6"],
+["0183023","Amortiguador Delantero Aveo 06-18 Pontiac G3 06-11 GROB","2709032",1,"Lote #6"],
+["0183025","Amortiguador Trasero Matiz 06-15 GROB","2709039",1,"Lote #6"],
+["0183026","Amortiguador Delantero Escalade 07-14 Avalanche 1500 07-1","2709044",1,"Lote #6"],
+["0183038","Amortiguador Trasero Ecosport 03-12 GROB","4009011",1,"Lote #6"],
+["0183048","Amortiguador Trasero Sentra 07-12 GROB","6709021",2,"Lote #6"],
+["0183049","Amortiguador Trasero NP300 4X2 09-15 GROB","6709037",1,"Lote #6"],
+["0183050","Amortiguador Delantero NP300 4X2 09-15 GROB","6709038",1,"Lote #6"],
+["0183060","Amortiguador Delantero A1 11-18 Ibiza 10-18 Toledo 13-18","9309015",1,"Lote #6"],
+["0183062","Amortiguador Delantero Nitro 06-12 Liberty 01-13 GROB","G0010",1,"Lote #6"],
+["0183073","Amortiguador Trasero A3 97-00 Leon 01-06 Toledo 01-06 Bee","G2430",1,"Lote #6"],
+["0183082","Amortiguador Delantero Expedition 97-02 F-150 97-03 F-250","G5184",1,"Lote #6"],
+["0183083","Amortiguador Trasero F-150 97-03 F-250 97-09 F-250 Light","G5187",1,"Lote #6"],
+["0183094","Amortiguador Delantero Izquierdo Sentra 01-06 GROB","GP251",1,"Lote #6"],
+["0183116","Amortiguador Delantero Derecho Aprio 07-11 Logan 07-11 Sa","6709028",1,"Lote #6"],
+["0183132","Amortiguador Trasero Derecho Izquierdo RAM-1500 02-12 RAM","3009013",2,"Lote #6"],
+["0183153","Amortiguador Delantero Derecho Izquierdo D-100 72-78 D-15","G5090",2,"Lote #6"],
+["0183157","Amortiguador Delantero Derecho Izquierdo RAM Charger 94-0","G5099",2,"Lote #6"],
+["0183158","Amortiguador Delantero Derecho Izquierdo RAM-1500 4X4 94-","G5101",2,"Lote #6"],
+["0183210","Amortiguador Trasero Derecho Izquierdo I10 11-14_x000D_ GROB","3009036",2,"Lote #6"],
+["0183215","Amortiguador Delantero Derecho Izquierdo Avalanche 2500 0","G5169",2,"Lote #6"],
+["0183218","Amortiguador Delantero Derecho Rav 4 06-12 GROB","8709030",1,"Lote #6"],
+["0183237","Amortiguador Delantero Izquierdo Rav 4 06-12 GROB","8709031",1,"Lote #6"],
+["0183245","Amortiguador Trasero Derecho Izquierdo Vibe 03-08 Corolla","8709013",2,"Lote #6"],
+["0183249","Amortiguador Trasero Izquierdo X-Trail 01-07 GROB","G4363",1,"Lote #6"],
+["0183251","Amortiguador Delantero Derecho Izquierdo Frontier 4X4 01-","G5236",2,"Lote #6"],
+["0183296","Amortiguador Trasero Derecho Izquierdo Avanza 12-18 GROB","8709115",1,"Lote #6"],
+["0183328","Amortiguador Trasero Dercho Izquierdo RAM-700 14-17 Strad","3009051",2,"Lote #6"],
+["0183346","Amortiguador Delantero Civic 03-05 GROB","5009026",1,"Lote #6"]],
+2: [
+["1403526","Clutch Automotriz Hyundai H-100 2.4L Gasolina Embragues VALEO 826894","826894",12,"Lote #1"],
+["1403546","Clutch Automotriz Volkswagen Vento 1.5 TDI 14-17 VALEO","822370",1,"Lote #1"],
+["1403534","Clutch Automotriz Toyota Yaris Embragues VALEO","826709",4,"Lote #1"],
+["1403524","Clutch Automotriz Hyundai Accent 1.5L. 2000-2003","826709",4,"Lote #1"],
+["1403504","Clutch Automotriz Chrysler Neon 2.0L VALEO","828241",1,"Lote #1"],
+["1403538","Clutch Automotriz Peugeot 306 Partner Embragues VALEO","821333",1,"Lote #1"],
+["1403526","Clutch Automotriz Hyundai H-100 2.4L Gasolina Embragues VALEO 826894","826894",12,"Lote #2"],
+["1403546","Clutch Automotriz Volkswagen Vento 1.5 TDI 14-17 VALEO","822370",1,"Lote #2"],
+["1403534","Clutch Automotriz Toyota Yaris Embragues VALEO","826709",3,"Lote #2"],
+["1403524","Clutch Automotriz Hyundai Accent 1.5L. 2000-2003","826709",5,"Lote #2"],
+["1403504","Clutch Automotriz Chrysler Neon 2.0L VALEO","828241",2,"Lote #2"],
+["1403538","Clutch Automotriz Peugeot 306 Partner Embragues VALEO","821333",1,"Lote #2"]],
+3: [
+["1775000","Estator USA Alternador Mitsubishi Chrysler 90A","",220],
+["3383800","Repuesto Alternador Hitachi IR/IF Nissan Tsuru 70A (Tornilleria","",330]],
 4: [
 ['2026002','Foco Fusible Azul 3 LEDs 10x31 (blister 2pz)','',680],
 ['2008302','Foco 1034 12 LEDs Morado (blister 2pz) HQL','',380],
@@ -399,6 +676,9 @@ const COD = {
 <script>
 /* ── Datos ── */
 const LOTES = [
+  { no:1, nombre:'LOTE AMORTIGUADORES GROB',  cod:'8605025', codigos:135, montoReal:299263.64, lotes:6, xlote:'$49.9 mil', bono:1000, ico:'🔧', ac:'#34C759' },
+  { no:2, nombre:'LOTE CLUTCH VALEO',         cod:'8605026', codigos:6,   montoReal:76782.97, lotes:2, xlote:'$38.4 mil', bono:1000, ico:'⚙️', ac:'#E0382F' },
+  { no:3, nombre:'LOTE DESPIECE ALTERNADOR',  cod:'8605027', codigos:2,   montoReal:73016.68, lotes:2, xlote:'$36.5 mil', bono:1000, ico:'🔌', ac:'#AF52DE' },
   { no:4, nombre:'LOTE FOCO LEDS',          cod:'8605028', codigos:20, monto:517238.61, lotes:20, xlote:'$20 mil', bono:1500, ico:'💡', ac:'#FF9F0A' },
   { no:5, nombre:'LOTE FOCO HALOGENO',      cod:'8605029', codigos:2,  monto:178019.57, lotes:8,  xlote:'$20 mil', bono:1500, ico:'🔆', ac:'#FF6B57' },
   { no:6, nombre:'LOTE FOCO INCANDESCENTE', cod:'8605030', codigos:32, monto:107945.82, lotes:5,  xlote:'$18 mil', bono:1500, ico:'🕯️', ac:'#30B0C7' },
@@ -406,7 +686,7 @@ const LOTES = [
   { no:8, nombre:'LOTE COLISIÓN 2',         cod:'8605024', codigos:80, monto:55949.04,  lotes:1,  xlote:'$27 mil', bono:2000, ico:'🚙', ac:'#5E5CE6' }
 ];
 /* El monto total = monto x lote × número de lotes */
-LOTES.forEach(l => { l.xl = parseFloat(l.xlote.replace(/[^0-9]/g, '')) * 1000; l.monto = l.xl * l.lotes; });
+LOTES.forEach(l => { l.xl = parseFloat(l.xlote.replace(/[^0-9]/g, '')) * 1000; l.monto = l.montoReal || l.xl * l.lotes; });
 const $$ = n => '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const $0 = n => '$' + Math.round(n).toLocaleString('es-MX');
 const totMonto = LOTES.reduce((a, l) => a + l.monto, 0);
@@ -448,7 +728,8 @@ document.getElementById('tf').innerHTML = `<tr><td colspan="3">Total</td><td>${L
 
 /* ── Modal de códigos ── */
 Object.keys(COD).forEach(k => { COD[k] = COD[k].filter(r => r[3] != null && r[3] > 0); });
-let ACT = null;
+let ACT = null, SUB = null;
+const filas = () => { const rs = COD[ACT.no] || []; return SUB ? rs.filter(r => r[4] === SUB) : rs; };
 const foto = c => `https://resources.apymsa.com.mx/imagenes/FotosSpeed/${c}/${c}2a.jpg`;
 const qtyTxt = q => q == null ? '—' : q.toLocaleString('es-MX');
 /* No. de parte: el capturado; si falta, el modelo que viene en la descripción */
@@ -458,10 +739,16 @@ function parte(r) {
   return m ? m[0] : '';
 }
 function abrir(i) {
-  const l = LOTES[i]; ACT = l; const rows = COD[l.no] || [];
+  ACT = LOTES[i]; const subs = [...new Set((COD[ACT.no] || []).map(r => r[4]).filter(Boolean))]; SUB = subs[0] || null; pintar(subs);
+}
+function pintar(subs) {
+  const l = ACT, rows = filas();
+  const sb = document.getElementById('m-subs');
+  sb.classList.toggle('on', subs.length > 1);
+  sb.innerHTML = subs.length > 1 ? subs.map(s => `<button class="${s === SUB ? 'on' : ''}" onclick="SUB='${s}';pintar(${JSON.stringify(subs).replace(/"/g, '&quot;')})">${s}</button>`).join('') : '';
   const pzs = rows.reduce((a, r) => a + (r[3] || 0), 0);
   document.getElementById('md').style.setProperty('--ac', l.ac);
-  document.getElementById('m-t').textContent = l.ico + ' ' + l.nombre;
+  document.getElementById('m-t').textContent = l.ico + ' ' + l.nombre + (SUB ? ' · ' + SUB : '');
   document.getElementById('m-c').textContent = l.cod;
   document.getElementById('m-n').textContent = rows.length + ' renglones';
   document.getElementById('m-p').textContent = pzs.toLocaleString('es-MX') + ' pz';
@@ -469,17 +756,19 @@ function abrir(i) {
     <td style="width:66px"><div class="ph"><img loading="lazy" referrerpolicy="no-referrer" src="${foto(r[0])}"
       onerror="this.remove()"><span style="position:absolute">📦</span></div></td>
     <td><span class="chip cd">${r[0]}</span></td><td>${r[1]}</td><td>${parte(r)}</td><td><b>${qtyTxt(r[3])}</b></td></tr>`).join('');
-  document.getElementById('m-nota').textContent = l.no >= 7
-    ? 'Selección de piezas del lote; se factura todo con el código ' + l.cod + '.'
-    : 'Lista de códigos del lote. “—” = cantidad pendiente de confirmar.';
+  document.getElementById('m-nota').textContent = SUB
+    ? 'Cada lote tiene su propia composición de piezas: elige el lote arriba. Se factura todo con el código ' + l.cod + '.'
+    : (l.no >= 7 || l.no <= 3)
+      ? 'Selección de piezas del lote; se factura todo con el código ' + l.cod + '.'
+      : 'Lista de códigos del lote. “—” = cantidad pendiente de confirmar.';
   document.getElementById('mo').classList.add('on');
   document.body.style.overflow = 'hidden';
 }
 function cerrar() { document.getElementById('mo').classList.remove('on'); document.body.style.overflow = ''; }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrar(); });
-const nomArch = l => l.nombre.replace(/[^A-Za-z0-9ÁÉÍÓÚÑ]+/gi, '_');
+const nomArch = l => l.nombre.replace(/[^A-Za-z0-9ÁÉÍÓÚÑ]+/gi, '_') + (SUB ? '_' + SUB.replace(/\W+/g, '') : '');
 function loteExcel() {
-  const l = ACT, rows = COD[l.no] || [];
+  const l = ACT, rows = filas();
   const filas = [['Código facturación lote', 'Código', 'Descripción', 'No. Parte', 'Cantidad']]
     .concat(rows.map(r => [l.cod, r[0], r[1], parte(r), r[3] == null ? '' : r[3]]));
   const ws = XLSX.utils.aoa_to_sheet(filas);
@@ -500,7 +789,7 @@ function imgB64(c) {
   });
 }
 async function lotePDF() {
-  const l = ACT, rows = COD[l.no] || [];
+  const l = ACT, rows = filas();
   if (!window.jspdf) { aviso('No cargó la librería PDF'); return; }
   aviso('Generando PDF con fotos…');
   const cods = [...new Set(rows.map(r => r[0]))], IM = {};
@@ -509,7 +798,7 @@ async function lotePDF() {
   const W = doc.internal.pageSize.getWidth();
   doc.setFillColor(27, 43, 75); doc.rect(0, 0, W, 78, 'F');
   doc.setTextColor(255); doc.setFont('helvetica', 'bold'); doc.setFontSize(18);
-  doc.text(l.nombre, 36, 36);
+  doc.text(l.nombre + (SUB ? ' · ' + SUB : ''), 36, 36);
   doc.setFontSize(10); doc.setFont('helvetica', 'normal');
   doc.text('APYMSA · Lotes Especiales 2026', 36, 54);
   doc.text('Código de facturación: ' + l.cod + '   |   Bono por lote: ' + $$(l.bono) + '   |   ' + l.lotes + ' lote(s)', 36, 68);
