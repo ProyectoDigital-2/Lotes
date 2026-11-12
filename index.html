@@ -729,7 +729,7 @@ document.getElementById('tf').innerHTML = `<tr><td colspan="3">Total</td><td>${L
 /* ── Modal de códigos ── */
 Object.keys(COD).forEach(k => { COD[k] = COD[k].filter(r => r[3] != null && r[3] > 0); });
 let ACT = null, SUB = null;
-const filas = () => { const rs = COD[ACT.no] || []; return SUB ? rs.filter(r => r[4] === SUB) : rs; };
+const filasAct = () => { const rs = COD[ACT.no] || []; return SUB ? rs.filter(r => r[4] === SUB) : rs; };
 const foto = c => `https://resources.apymsa.com.mx/imagenes/FotosSpeed/${c}/${c}2a.jpg`;
 const qtyTxt = q => q == null ? '—' : q.toLocaleString('es-MX');
 /* No. de parte: el capturado; si falta, el modelo que viene en la descripción */
@@ -742,7 +742,7 @@ function abrir(i) {
   ACT = LOTES[i]; const subs = [...new Set((COD[ACT.no] || []).map(r => r[4]).filter(Boolean))]; SUB = subs[0] || null; pintar(subs);
 }
 function pintar(subs) {
-  const l = ACT, rows = filas();
+  const l = ACT, rows = filasAct();
   const sb = document.getElementById('m-subs');
   sb.classList.toggle('on', subs.length > 1);
   sb.innerHTML = subs.length > 1 ? subs.map(s => `<button class="${s === SUB ? 'on' : ''}" onclick="SUB='${s}';pintar(${JSON.stringify(subs).replace(/"/g, '&quot;')})">${s}</button>`).join('') : '';
@@ -768,7 +768,7 @@ function cerrar() { document.getElementById('mo').classList.remove('on'); docume
 document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrar(); });
 const nomArch = l => l.nombre.replace(/[^A-Za-z0-9ÁÉÍÓÚÑ]+/gi, '_') + (SUB ? '_' + SUB.replace(/\W+/g, '') : '');
 function loteExcel() {
-  const l = ACT, rows = filas();
+  const l = ACT, rows = filasAct();
   const filas = [['Código facturación lote', 'Código', 'Descripción', 'No. Parte', 'Cantidad']]
     .concat(rows.map(r => [l.cod, r[0], r[1], parte(r), r[3] == null ? '' : r[3]]));
   const ws = XLSX.utils.aoa_to_sheet(filas);
@@ -789,7 +789,7 @@ function imgB64(c) {
   });
 }
 async function lotePDF() {
-  const l = ACT, rows = filas();
+  const l = ACT, rows = filasAct();
   if (!window.jspdf) { aviso('No cargó la librería PDF'); return; }
   aviso('Generando PDF con fotos…');
   const cods = [...new Set(rows.map(r => r[0]))], IM = {};
@@ -812,7 +812,8 @@ async function lotePDF() {
     alternateRowStyles: { fillColor: [244, 247, 251] },
     didDrawCell: d => {
       if (d.section === 'body' && d.column.index === 0) {
-        const im = IM[rows[d.row.index][0]];
+        const raw = d.row.raw; if (!raw) return;
+        const im = IM[raw[1]];
         if (im) doc.addImage(im, 'JPEG', d.cell.x + 5, d.cell.y + 3, 36, 36);
         else { doc.setFontSize(14); doc.text('·', d.cell.x + 23, d.cell.y + 22); }
       } },
